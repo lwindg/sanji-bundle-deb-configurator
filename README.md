@@ -1,8 +1,15 @@
 # sanji-bundle-deb-configurator
 A Debian package configurator for sanji bundles
 
+## Guide
+1. copy all files (exclude README.md) to sanji bundle directory
+2. run "configure-debian-pkg.sh" to produce the debian configuration files and Makefile  
+    ``./configure-debian-pkg.sh``
+3. after the configuration, run "make deb" will build the debian package for current bundle
+
+
 ## Rules
-1. location  
+1. sanji bundle will be placed under  
     ``/usr/lib/sanji<version>/``
 2. do not install test files
 3. both online & offline install is available (how to check online or offline)
