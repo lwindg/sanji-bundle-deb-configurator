@@ -3,9 +3,13 @@ A Debian package configurator for sanji bundles
 
 ## Guide
 1. copy all files (exclude README.md) to sanji bundle directory
-2. run "configure-debian-pkg.sh" to produce the debian configuration files and Makefile  
+2. run "configure-debian-pkg.sh" to produce the debian configuration files
     ``./configure-debian-pkg.sh``
-3. after the configuration, run "make deb" will build the debian package for current bundle
+3. after the configuration, edit the `Makefile` with `TARGET_FILES` and 
+   `DIST_FILES`
+4. update `test` target with current package
+
+Try ``make -C build-deb`` to build the debian package.
 
 
 ## Rules

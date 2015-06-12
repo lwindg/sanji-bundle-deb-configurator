@@ -60,8 +60,8 @@ verify_variables () {
 
 set_package_info
 set_author_info
-set_bundle_items
-verify_variables
+#set_bundle_items
+#verify_variables
 
 
 # set the default values
@@ -91,17 +91,8 @@ safe_description=$(printf '%s\n' "$description" | sed 's/[[\.*^$/]/\\&/g')
 safe_git=$(printf '%s\n' "$git_repo" | sed 's/[[\.*^$/]/\\&/g')
 safe_web=$(printf '%s\n' "$web" | sed 's/[[\.*^$/]/\\&/g')
 
-# prepare the configuration file
-DEBIAN_CONF=debian.conf
-echo "SANJI_VER = ${sanji_ver}" > ${DEBIAN_CONF}
-echo "NAME      = ${package}" >> ${DEBIAN_CONF}
-echo "RESOURCE  = ${resource}" >> ${DEBIAN_CONF}
-echo "FILES     = ${files}" >> ${DEBIAN_CONF}
-echo "DIRS      = ${dirs}" >> ${DEBIAN_CONF}
-echo "include make.deb" >> Makefile
-
 # prepare the Debian package files
-for file in $(find debian/ -type f); do
+for file in $(find build-deb/debian/ -type f); do
 	sed -i "s/%%package%%/${safe_package}/g" $file
 	sed -i "s/%%author%%/${safe_author}/g" $file
 	sed -i "s/%%email%%/${safe_email}/g" $file
