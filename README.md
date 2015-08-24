@@ -9,7 +9,7 @@ A Debian package configurator for sanji bundles
    `DIST_FILES`
 4. update `test` target with current package
 
-Try ``make -C build-deb`` to build the debian package.
+Try ``make dist && make -C build-deb`` to build the debian package.
 
 
 ## Rules
